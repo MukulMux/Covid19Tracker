@@ -1,0 +1,49 @@
+<div class="container-fluid" >
+  <div class="jumbotron text-center">
+    <h2>Worldwide status of Covid19</h2>
+    <div class="row text-center">
+      <div class="card col col-md-4 m-8 placing" style="background-color: rgb(50, 100, 192); height: 100px;">
+        <h2>Total Confirmed</h2>
+        <h2>{{ globalData.TotalConfirmed}}</h2>
+      </div>
+     
+      <div class="card col col-md-4 m-8 placing" style="background-color: rgb(79, 196, 132);">
+        <h2>Total Recovered</h2>
+        <h2>{{ globalData.TotalRecovered}}</h2>
+      </div>
+      <div class="card col col-md-4 m-8 placing" style="background-color:rgb(202, 107, 107);">
+        <h2>Total Deaths</h2>
+        <h2>{{ globalData.TotalDeaths}}</h2>
+      </div>
+    </div>
+  </div>
+
+  <div style="height: 10cm;overflow-y: scroll;">
+    <table class="table table-striped" >
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Country Name</th>
+          <th scope="col">Total Confirmed</th>
+          <th scope="col">Total Recovered</th>
+          <th scope="col">Total Deaths</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of allData.Countries;let i = index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{data.Country}}</td>
+          <td>{{data.TotalConfirmed}} <span class="incrB"> ( &#8593; {{data.NewConfirmed}} ) </span> </td>
+          <td>{{data.TotalRecovered}} <span class="incrG"> ( &#8593; {{data.NewRecovered}} ) </span></td>
+          <td>{{data.TotalDeaths}} <span class="incrR"> ( &#8593; {{data.NewDeaths}} ) </span></td>
+
+        </tr>
+
+       
+      </tbody>
+    </table>
+  </div>
+
+  <!-- <div class="text-danger text-center text-uppercase">
+  </div> -->
+</div>
